@@ -21,12 +21,12 @@ public class TimeEntryController {
 
     public ResponseEntity<TimeEntry> read(long timeEntryId) {
         TimeEntry t = timeEntryRepository.find(timeEntryId);
-        return t != null ? ResponseEntity.status(HttpStatus.OK).body(t) : ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        return t != null ? ResponseEntity.status(HttpStatus.OK).body(t) : ResponseEntity.notFound().build();
     }
 
     public ResponseEntity<TimeEntry> update(long timeEntryId, TimeEntry timeEntryToUpdate) {
         TimeEntry t = timeEntryRepository.update(timeEntryId, timeEntryToUpdate);
-        return t != null ? ResponseEntity.status(HttpStatus.OK).body(t) : ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        return t != null ? ResponseEntity.status(HttpStatus.OK).body(t) : ResponseEntity.notFound().build();
 
     }
 
